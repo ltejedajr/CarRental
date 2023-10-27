@@ -7,59 +7,67 @@ window.onload = init;
 function init() {
     const totalCostBtn = document.getElementById("totalCostBtn");
     totalCostBtn.onclick = totalCostBtnClicked;
-    }
 
-function addedOptions() {
-    let tollTagChkBox = document.getElementByid("tollTag");
-    tollTagChkBox.onclick = onTollTagChkBoxClicked;
-    let gpsChkBox = document.getElementByid("gps");
-    gpsChkBox.onclick = onGpsChkBoxClicked;
-    let roadsideAssistanceChkBox = document.getElementByid("roadsideAssistance");
-    roadsideAssistanceChkBox.onclick = onRoadsideAssistanceChkBoxClicked;
-}
-
-function onTollTagChkBoxClicked () {
-    let tollTag = document.getElementByid("tollTag").checked;
-    let tollTagFee = 3.95
-
-    if (tollTag) {
-        tollTagFee = true
-    }
-    let gps = document.getElementByid("gps").checked;
-    if (tollTag) {
-        let tollTagFee = 3.95
-    }
 }
 
 function totalCostBtnClicked() {
     const inputNumOfDays = document.getElementById("inputNumOfDays");
-    let numofDays = inputNumOfDays.value;
+    let numofDays = Number(inputNumOfDays.value);
+
     
-    let carRentalDue = numofDays * 
-
-    let tollTag = document.getElementById("tollTag");
-    let gps = document.getElementByid("gps");
-    let roadsideAssistance = document.getElementById("roadsideAssistance");
+    // pg. 3-7
     
-    let basicRentalRate = 29.99
-    tollTag = 3.95
-    gps = 2.95
-    roadsideAssistance = 2.95
-
-    if (tollTag.checked) {
-            carRentalDue = 3.95 + 29.99;
+    let optionsPerDay = 0
+    
+    let tollTag = document.getElementById("tollTag").checked;
+    if (tollTag) {
+        optionsPerDay += 3.95;
     }
-    else  if (gps.checked) {
-            carRentalDue = 2.95 + 29.99;      
-    } 
-    else if (roadsideAssistance.checked) {
-            carRentalDue = 2.95 + 29.99;
+    
+    let gps = document.getElementById("gps").checked;
+    if (gps) {
+        optionsPerDay += 2.95;
     }
-    else {
-        carRentalDue = 29.99;
+    
+    let roadsideAssistance = document.getElementById("roadsideAssistance").checked;
+    if (roadsideAssistance) {
+        optionsPerDay += 2.95;
     }
+    
+    // pg. 3-11
+    
+    let noRadioBtn = document.getElementById("noRadioBtn");
+    let yesRadioBtn = document.getElementById("yesRadioBtn");
+    
+    let under25;
+    if (noRadioBtn.checked) {
+        under25 = 0;
+    }
+    else if (yesRadioBtn.checked) {
+        under25 = .30;
+    }
+    
+    let basicCarRentalRate = 29.99
+    
+    let CarRentalValue = basicCarRentalRate * numofDays;
+    let optionsValue = optionsPerDay * numofDays;
+    let under25Value = CarRentalValue * under25;
+    
+    let totalDueValue = CarRentalValue + optionsValue + under25Value;
+    
+    const outputCarRental = document.getElementById("outputCarRental");
+    const outputOptions = document.getElementById("outputOptions");
+    const outputUnder25 = document.getElementById("outputUnder25");
+    
+    const outputTotalDue = document.getElementById("outputTotalDue");
+    
+    outputCarRental.innerHTML = "$" + CarRentalValue.toFixed(2);
+    outputOptions.innerHTML = "$" + optionsValue.toFixed(2);
+    outputUnder25.innerHTML = "$" + under25Value.toFixed(2);
+    
+    outputTotalDue.innerHTML = "$" + totalDueValue.toFixed(2);
+    
+    document.getElementById('redCircle').style.display='block'; 
 
-
-    const outputH6 = document.getElementById("outputH6");
-    outputH6.innerHTML = message;
 }
+
