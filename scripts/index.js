@@ -12,7 +12,7 @@ function init() {
 
 function totalCostBtnClicked() {
     const inputNumOfDays = document.getElementById("inputNumOfDays");
-    let numofDays = Number(inputNumOfDays.value);
+    let numOfDays = Number(inputNumOfDays.value);
 
     
     // pg. 3-7
@@ -49,8 +49,8 @@ function totalCostBtnClicked() {
     
     let basicCarRentalRate = 29.99
     
-    let carRentalValue = basicCarRentalRate * numofDays;
-    let optionsValue = optionsPerDay * numofDays;
+    let carRentalValue = basicCarRentalRate * numOfDays;
+    let optionsValue = optionsPerDay * numOfDays;
     let under25Value = carRentalValue * under25;
     
     let totalDueValue = carRentalValue + optionsValue + under25Value;
