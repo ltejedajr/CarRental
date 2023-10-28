@@ -49,11 +49,11 @@ function totalCostBtnClicked() {
     
     let basicCarRentalRate = 29.99
     
-    let CarRentalValue = basicCarRentalRate * numofDays;
+    let carRentalValue = basicCarRentalRate * numofDays;
     let optionsValue = optionsPerDay * numofDays;
-    let under25Value = CarRentalValue * under25;
+    let under25Value = carRentalValue * under25;
     
-    let totalDueValue = CarRentalValue + optionsValue + under25Value;
+    let totalDueValue = carRentalValue + optionsValue + under25Value;
     
     const outputCarRental = document.getElementById("outputCarRental");
     const outputOptions = document.getElementById("outputOptions");
@@ -61,7 +61,7 @@ function totalCostBtnClicked() {
     
     const outputTotalDue = document.getElementById("outputTotalDue");
     
-    outputCarRental.innerHTML = "$" + CarRentalValue.toFixed(2);
+    outputCarRental.innerHTML = "$" + carRentalValue.toFixed(2);
     outputOptions.innerHTML = "$" + optionsValue.toFixed(2);
     outputUnder25.innerHTML = "$" + under25Value.toFixed(2);
     
