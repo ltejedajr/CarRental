@@ -17,7 +17,7 @@ function totalCostBtnClicked() {
     
     // pg. 3-7
     
-    let optionsPerDay = 0
+    const optionsPerDay = 0
     
     let tollTag = document.getElementById("tollTag").checked;
     if (tollTag) {
@@ -36,8 +36,8 @@ function totalCostBtnClicked() {
     
     // pg. 3-11
     
-    let noRadioBtn = document.getElementById("noRadioBtn");
-    let yesRadioBtn = document.getElementById("yesRadioBtn");
+    const noRadioBtn = document.getElementById("noRadioBtn");
+    const yesRadioBtn = document.getElementById("yesRadioBtn");
     
     let under25;
     if (noRadioBtn.checked) {
